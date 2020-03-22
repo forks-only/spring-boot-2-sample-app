@@ -37,7 +37,7 @@ public class SampleActuatorApplication {
 
 			@Override
 			public Health health() {
-				return Health.up().withDetail("hello", "jason").build();
+				return Health.up().withDetail("hello", "there").build();
 			}
 
 		};
