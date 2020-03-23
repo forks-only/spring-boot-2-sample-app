@@ -3,6 +3,10 @@ phases:
   install:
     runtime-versions:
       java: corretto11
+  pre_build:
+    commands:
+      - # If this is a pull request, report to the GitHub pull request that we are staring the build.
+      - pwd && ls -ltra && env # Useful for debugging
   build:
     commands:
-      - mvn compile -Dgpg.skip=true -Dmaven.repo.local=$CODEBUILD_efs_mount
+      - mvn compile -Dgpg.skip=true -Dmaven.repo.local=$CODEBUILD_EFS_MOUNT
